@@ -1,4 +1,4 @@
-.hg/**
+syntax: glob
 .idea
 .DS_Store
 .svn
