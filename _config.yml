@@ -1,17 +1,17 @@
 # Site settings
-title: Jekyll-Uno
+title: reneVolution blog
 description: 'Jekyll-Uno - a minimal, responsive theme for Jekyll'
 url: 'http://joshgerdes.com/jekyll-uno' 
 baseurl: '/jekyll-uno/'
 # google_analytics: 'UA-XXXXXX-X'
 
 author:
-  name: 'Josh Gerdes'
-  email: josh@joshgerdes.com
-  twitter_username: joshgerdes
-  facebook_username: joshgerdes
-  github_username:  joshgerdes
-  linkedin_username:  joshgerdes
+  name: 'René Calles'
+  #email: josh@joshgerdes.com
+  #twitter_username: joshgerdes
+  #facebook_username: joshgerdes
+  github_username: ReneVolution
+  #linkedin_username:  joshgerdes
 
 # Build settings
 destination: _site
