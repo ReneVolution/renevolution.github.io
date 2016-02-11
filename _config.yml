@@ -1,14 +1,14 @@
 # Site settings
-title: reneVolution blog
-description: 'Jekyll-Uno - a minimal, responsive theme for Jekyll'
+title: René Calles
+description: 'Developer, Media Enthusiast and Fisherman'
 url: 'http://renevolution.com' 
 baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
 
 author:
   name: 'René Calles'
-  #email: josh@joshgerdes.com
-  #twitter_username: joshgerdes
+  email: info@renevolution.com
+  twitter_username: renecalles
   #facebook_username: joshgerdes
   github_username: ReneVolution
   #linkedin_username:  joshgerdes
