@@ -1,0 +1,86 @@
+---
+layout: post
+title: 'Understanding FFmpeg - Part III: Cropping'
+date: 2013-05-23 21:34:44.000000000 +02:00
+type: post
+published: true
+status: publish
+categories:
+- FFmpeg
+tags:
+- command line
+- crop
+- cropdetect
+- encoding
+- FFmpeg
+- ffplay
+- filter
+meta:
+  _yoast_wpseo_linkdex: '78'
+  _edit_last: '2'
+  _rawhtml_settings: '0,0,0,0'
+  _yoast_wpseo_focuskw: cropping
+  _yoast_wpseo_title: 'Understanding FFmpeg - Part III: Cropping | reneVolution'
+  _yoast_wpseo_metadesc: Have you ever been in the situation being annoyed about crappy
+    bars around your video or just wanted to have part of your video? Crop it...
+  Hide SexyBookmarks: '0'
+  Hide OgTags: '0'
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_aggregation_log: a:16:{i:1369342673;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369345332;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369348166;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369352510;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369362023;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369364759;O:8:"stdClass":1:{s:6:"manual";b:1;}i:1369365995;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369367899;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369371116;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369375833;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369383647;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369399136;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369429268;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369472470;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369559807;O:8:"stdClass":1:{s:6:"manual";b:0;}i:1369733050;O:8:"stdClass":1:{s:6:"manual";b:0;}}
+  _social_notify: '1'
+  _social_broadcast_content: 'a:1:{s:8:"facebook";a:1:{i:100000902402202;s:280:"Understanding
+    FFmpeg - Part III: Cropping:  If you''ve ever been in a situation where your recorded
+    video had a blank interval or you just want to get a specific part of your video
+    you''ll definitely want to crop your video. In this article i''ll show you how
+    to do this with FFmpeg.";}}'
+  _social_broadcast_meta: 'a:1:{s:8:"facebook";a:1:{i:100000902402202;a:3:{s:4:"link";s:49:"http://www.renevolution.com/?post_type=post&p=321";s:5:"title";s:47:"Understanding
+    FFmpeg &#8211; Part III: Cropping";s:11:"description";s:310:"&nbsp; If you&#8217;ve
+    ever been in a situation where your recorded video had a blank interval or you
+    just want to get a specific part of your video you&#8217;ll definitely want to
+    crop your video. In this article i&#8217;ll show you how to do this with FFmpeg.
+    Example video &nbsp; Ok, before you leave the...";}}}'
+  _social_broadcasted_ids: a:1:{s:7:"twitter";a:1:{i:519731458;a:1:{i:337764893052792832;a:3:{s:7:"message";s:3052:"eyJmYXZvcml0ZWQiOmZhbHNlLCJjb29yZGluYXRlcyI6bnVsbCwidXNlciI6eyJjcmVhdGVkX2F0IjoiRnJpIE1hciAwOSAxOTowMDowNSArMDAwMCAyMDEyIiwicHJvZmlsZV9iYWNrZ3JvdW5kX2ltYWdlX3VybCI6Imh0dHA6XC9cL2EwLnR3aW1nLmNvbVwvaW1hZ2VzXC90aGVtZXNcL3RoZW1lOVwvYmcuZ2lmIiwibmFtZSI6IlJlblx1MDBlOSBDYWxsZXMiLCJjb250cmlidXRvcnNfZW5hYmxlZCI6ZmFsc2UsInByb2ZpbGVfbGlua19jb2xvciI6IjJGQzJFRiIsImlzX3RyYW5zbGF0b3IiOmZhbHNlLCJkZWZhdWx0X3Byb2ZpbGVfaW1hZ2UiOmZhbHNlLCJlbnRpdGllcyI6eyJ1cmwiOnsidXJscyI6W3siZGlzcGxheV91cmwiOiJyZW5ldm9sdXRpb24uY29tIiwiaW5kaWNlcyI6WzAsMjJdLCJleHBhbmRlZF91cmwiOiJodHRwOlwvXC93d3cucmVuZXZvbHV0aW9uLmNvbSIsInVybCI6Imh0dHA6XC9cL3QuY29cL2ZHNXFoU0dWdnQifV19LCJkZXNjcmlwdGlvbiI6eyJ1cmxzIjpbXX19LCJ2ZXJpZmllZCI6ZmFsc2UsImZhdm91cml0ZXNfY291bnQiOjAsImlkX3N0ciI6IjUxOTczMTQ1OCIsInByb2ZpbGVfdXNlX2JhY2tncm91bmRfaW1hZ2UiOnRydWUsImlkIjoiNTE5NzMxNDU4IiwicHJvZmlsZV90ZXh0X2NvbG9yIjoiNjY2NjY2IiwidGltZV96b25lIjpudWxsLCJmb2xsb3dlcnNfY291bnQiOjQsInVybCI6Imh0dHA6XC9cL3QuY29cL2ZHNXFoU0dWdnQiLCJub3RpZmljYXRpb25zIjpmYWxzZSwibGFuZyI6ImRlIiwicHJvZmlsZV9zaWRlYmFyX2JvcmRlcl9jb2xvciI6IjE4MUExRSIsInByb2ZpbGVfYmFja2dyb3VuZF9pbWFnZV91cmxfaHR0cHMiOiJodHRwczpcL1wvdHdpbWcwLWEuYWthbWFpaGQubmV0XC9pbWFnZXNcL3RoZW1lc1wvdGhlbWU5XC9iZy5naWYiLCJsb2NhdGlvbiI6IkNvbG9nbmUsIEdlcm1hbnkiLCJ1dGNfb2Zmc2V0IjpudWxsLCJkZWZhdWx0X3Byb2ZpbGUiOmZhbHNlLCJzdGF0dXNlc19jb3VudCI6MTYsImZyaWVuZHNfY291bnQiOjM0LCJwcm9maWxlX2JhY2tncm91bmRfdGlsZSI6ZmFsc2UsInByb2ZpbGVfaW1hZ2VfdXJsX2h0dHBzIjoiaHR0cHM6XC9cL3R3aW1nMC1hLmFrYW1haWhkLm5ldFwvcHJvZmlsZV9pbWFnZXNcLzMzOTExNzE2MTNcL2Y4ZjkxNTBkM2U3ZTgyN2E5ZDllMjYxMzI1ZjZmMmZkX25vcm1hbC5qcGVnIiwiZ2VvX2VuYWJsZWQiOmZhbHNlLCJwcm9maWxlX3NpZGViYXJfZmlsbF9jb2xvciI6IjI1MjQyOSIsInByb3RlY3RlZCI6ZmFsc2UsImRlc2NyaXB0aW9uIjpudWxsLCJsaXN0ZWRfY291bnQiOjAsImZvbGxvd2luZyI6ZmFsc2UsImZvbGxvd19yZXF1ZXN0X3NlbnQiOmZhbHNlLCJwcm9maWxlX2JhY2tncm91bmRfY29sb3IiOiIxQTFCMUYiLCJwcm9maWxlX2ltYWdlX3VybCI6Imh0dHA6XC9cL2EwLnR3aW1nLmNvbVwvcHJvZmlsZV9pbWFnZXNcLzMzOTExNzE2MTNcL2Y4ZjkxNTBkM2U3ZTgyN2E5ZDllMjYxMzI1ZjZmMmZkX25vcm1hbC5qcGVnIiwic2NyZWVuX25hbWUiOiJyZW5lY2FsbGVzIn0sInBvc3NpYmx5X3NlbnNpdGl2ZSI6ZmFsc2UsImVudGl0aWVzIjp7Imhhc2h0YWdzIjpbXSwidXNlcl9tZW50aW9ucyI6W10sInVybHMiOlt7ImRpc3BsYXlfdXJsIjoicmVuZXZvbHV0aW9uLmNvbVwvP3A9MzIxIiwiaW5kaWNlcyI6WzU1LDc3XSwiZXhwYW5kZWRfdXJsIjoiaHR0cDpcL1wvd3d3LnJlbmV2b2x1dGlvbi5jb21cLz9wPTMyMSIsInVybCI6Imh0dHA6XC9cL3QuY29cL2txdldhbmJ3MWkifV19LCJpbl9yZXBseV90b191c2VyX2lkIjpudWxsLCJ0cnVuY2F0ZWQiOmZhbHNlLCJzb3VyY2UiOiI8YSBocmVmPVwiaHR0cHM6XC9cL3NvcHJlc3RvLm1haWxjaGltcC5jb21cIiByZWw9XCJub2ZvbGxvd1wiPlNvY2lhbCBQcm94eSBieSBNYWlsY2hpbXA8XC9hPiIsInBsYWNlIjpudWxsLCJyZXR3ZWV0X2NvdW50IjowLCJpbl9yZXBseV90b19zdGF0dXNfaWRfc3RyIjpudWxsLCJpZCI6IjMzNzc2NDg5MzA1Mjc5MjgzMiIsInJldHdlZXRlZCI6ZmFsc2UsImNyZWF0ZWRfYXQiOiJGcmkgTWF5IDI0IDAzOjAwOjAwICswMDAwIDIwMTMiLCJpbl9yZXBseV90b191c2VyX2lkX3N0ciI6bnVsbCwiY29udHJpYnV0b3JzIjpudWxsLCJpbl9yZXBseV90b19zdGF0dXNfaWQiOm51bGwsInRleHQiOiJVbmRlcnN0YW5kaW5nIEZGbXBlZyAtIFBhcnQgSUlJOiBDcm9wIGl0IGxpa2UgaXQncyBob3QgaHR0cDpcL1wvdC5jb1wva3F2V2FuYncxaSIsImlkX3N0ciI6IjMzNzc2NDg5MzA1Mjc5MjgzMiIsImluX3JlcGx5X3RvX3NjcmVlbl9uYW1lIjpudWxsLCJnZW8iOm51bGx9";s:4:"urls";a:2:{i:0;s:67:"http://www.renevolution.com/understanding-ffmpeg-part-iii-cropping/";i:1;s:34:"http://www.renevolution.com/?p=321";}s:7:"account";O:8:"stdClass":1:{s:4:"user";O:8:"stdClass":35:{s:2:"id";s:9:"519731458";s:6:"id_str";s:9:"519731458";s:4:"name";s:12:"René
+    Calles";s:11:"screen_name";s:10:"renecalles";s:8:"location";s:0:"";s:11:"description";s:0:"";s:9:"protected";s:1:"0";s:15:"followers_count";s:1:"0";s:13:"friends_count";s:1:"2";s:12:"listed_count";s:1:"0";s:10:"created_at";s:30:"Fri
+    Mar 09 19:00:05 +0000 2012";s:16:"favourites_count";s:1:"0";s:11:"geo_enabled";s:1:"0";s:8:"verified";s:1:"0";s:14:"statuses_count";s:1:"6";s:4:"lang";s:2:"de";s:6:"status";a:15:{s:10:"created_at";s:30:"Sat
+    Mar 10 18:17:46 +0000 2012";s:2:"id";s:18:"178545197628661760";s:6:"id_str";s:18:"178545197628661760";s:4:"text";s:120:"@stackideas
+    Is actually set to "NO" but the "breadcrump bar" on top is still visible. Or isn't
+    it a feature of EasyBlog?";s:6:"source";s:3:"web";s:9:"truncated";s:1:"0";s:21:"in_reply_to_status_id";s:18:"178541434662682624";s:25:"in_reply_to_status_id_str";s:18:"178541434662682624";s:19:"in_reply_to_user_id";s:8:"96913746";s:23:"in_reply_to_user_id_str";s:8:"96913746";s:23:"in_reply_to_screen_name";s:10:"stackideas";s:13:"retweet_count";s:1:"0";s:9:"favorited";s:1:"0";s:9:"retweeted";s:1:"0";s:4:"lang";s:2:"en";}s:20:"contributors_enabled";s:1:"0";s:13:"is_translator";s:1:"0";s:24:"profile_background_color";s:6:"C0DEED";s:28:"profile_background_image_url";s:47:"http://a0.twimg.com/images/themes/theme1/bg.png";s:34:"profile_background_image_url_https";s:49:"https://si0.twimg.com/images/themes/theme1/bg.png";s:23:"profile_background_tile";s:1:"0";s:17:"profile_image_url";s:78:"http://a0.twimg.com/sticky/default_profile_images/default_profile_1_normal.png";s:23:"profile_image_url_https";s:80:"https://si0.twimg.com/sticky/default_profile_images/default_profile_1_normal.png";s:18:"profile_link_color";s:6:"0084B4";s:28:"profile_sidebar_border_color";s:6:"C0DEED";s:26:"profile_sidebar_fill_color";s:6:"DDEEF6";s:18:"profile_text_color";s:6:"333333";s:28:"profile_use_background_image";s:1:"1";s:15:"default_profile";s:1:"1";s:21:"default_profile_image";s:1:"1";s:9:"following";s:1:"0";s:19:"follow_request_sent";s:1:"0";s:13:"notifications";s:1:"0";}}}}}}
+author:
+  login: reneVolution
+  email: me@renevolution.com
+  display_name: René Calles
+  first_name: René
+  last_name: Calles
+---
+<p><a href="http://www.renevolution.com/wp-content/uploads/2013/03/FFmpeg-Logo.svg_.png"><img class="aligncenter size-full wp-image-183" alt="FFmpeg-Logo.svg" src="{{ site.baseurl }}/assets/FFmpeg-Logo.svg_.png" width="570" height="144" /></a></p>
+<p>&nbsp;</p>
+<p>If you've ever been in a situation where your recorded video had a blank interval or you just want to get a specific part of your video you'll definitely want to crop your video. In this article i'll show you how to do this with <a title="FFmpeg" href="http://www.ffmpeg.org" target="_blank">FFmpeg</a>.</p>
+<h2>Example video</h2>
+<p><a href="http://www.renevolution.com/wp-content/uploads/2013/05/crop_example.png"><img class="aligncenter size-medium wp-image-323" alt="crop_example" src="{{ site.baseurl }}/assets/crop_example-600x337.png" width="600" height="337" /></a></p>
+<p>&nbsp;</p>
+<p><span style="line-height: 19px;">Ok, before you leave the keyboard and stop reading .. you will not need a ruler to fix this. Let's have look how we can do it the easy way using <a title="FFmpeg" href="http://www.ffmpeg.org" target="_blank">FFmpeg</a>.</span></p>
+<p><span style="font-size: 1.5em; line-height: 19px;">Get the cropping values</span></p>
+<p>At first we need to find out the necessary values for the cropping filter. This can be done by FFplay using the cropdetect filter. This can be done using the command line <span class="lang:sh decode:true crayon-inline">ffplay -i YourMovie.mp4 -vf "cropdetect=24:16:0"</span> or using FFmpeg with a command line like <span class="lang:sh decode:true  crayon-inline ">ffmpeg -i YourMovie.mp4 -vf "cropdetect=24:16:0" dummy.avi</span> .</p>
+<p>The cropdetect filter is configured with the arguments <span style="color: #0e9ff0;"><em>cropdetect=limit:round:reset</em> </span>with the following meaning:</p>
+<p><em><strong>limit</strong> </em>= The threshold of the intensity of the black bar. You can play around with that, it worked mostly well for me with the default value 24</p>
+<p><em><strong>round</strong> </em>= Ensures the output resolution is divisible by the value specified. 16 is best for most video codecs.</p>
+<p><strong><em>reset</em> </strong>= Determines after how many frames cropdetect will reset the previously detected largest video area and start over to detect the current optimal crop area. This is especially useful when tv logos interrupt the video.</p>
+<p>To output in your shell will look like this:</p>
+<pre class="nums:false wrap:true lang:sh decode:true" title="cropdetect output">[Parsed_cropdetect_0 @ 0x7fe4f14127c0] x1:0 x2:639 y1:29 y2:295 w:640 h:256 x:0 y:36 pos:1426828 pts:636 t:26.500000 crop=640:256:0:36
+[Parsed_cropdetect_0 @ 0x7fe4f14127c0] x1:0 x2:639 y1:29 y2:295 w:640 h:256 x:0 y:36 pos:1428008 pts:637 t:26.541667 crop=640:256:0:36</pre>
+<p>What's that ? Right, the last part on every line with "<em><strong>crop=...</strong></em>" are our cropping values to remove all black bars around our movie.</p>
+<h2>Crop it like it's hot</h2>
+<p>Now it's time to remove those annoying black bars around this movie using</p>
+<pre class="nums:false lang:sh decode:true">ffmpeg -i YourMovie.mp4 -vf "crop=640:256:0:36" YourCroppedMovie.mp4</pre>
+<p>which will result in the expected output like this:</p>
+<p><a href="http://www.renevolution.com/wp-content/uploads/2013/05/cropped.png"><img class="aligncenter size-medium wp-image-336" alt="cropped" src="{{ site.baseurl }}/assets/cropped-600x240.png" width="600" height="240" /></a></p>
+<p>&nbsp;</p>
+<p>To finally explain the parameters used with the crop filter in a more general way, here we go:</p>
+<p>The crop filter takes four arguments <span class="lang:sh decode:true  crayon-inline ">crop=out_width:out_height:x:y</span>  and can be explained as</p>
+<p><strong><em>out_width/output_height</em> </strong>represents the cropped output width of the video.</p>
+<p><strong><em>x/y</em></strong> is the start coordinate from the top left corner.</p>
+<p>In my example the cropped output width is 640px and the output height is 256px in total, starting from (0,36) coordinate.</p>
+<h2>Cropping with fixed values</h2>
+<p>Another approach is to crop your video to a fixed area. This can be done using regular expressions inside the crop filter configuration.</p>
+<p>For e.g. to crop your video 32px on left/right and 16px on top/bottom use this configuration <span class="lang:sh decode:true  crayon-inline  crayon-selected">crop=iw-64:ih-32:32:16</span>. The parameter <strong><em>iw-64</em></strong> is the cropped output width calculated by the input width - 64px as we wanted to crop 32px from each side. The same is done for the output height with <em><strong>ih-32</strong> </em>which results in the calculated cropped output height - 32px -&gt; 16px each top and bottom. The starting coordinates are <em><strong>x</strong></em> = 32 and <strong><em>y</em></strong> = 16.</p>
+<p>I hope i could show you how useful and powerful cropping is and you enjoyed reading. Try it and have fun...</p>
