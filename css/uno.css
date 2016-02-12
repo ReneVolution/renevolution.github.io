@@ -1017,6 +1017,11 @@ ol {
 ul {
 	list-style-type: disc; }
 
+li > p > a > img {
+	position: relative; 
+	max-width:100%; 
+	width: 100%; }
+
 code {
 	padding: .1em .4em;
 	background: #e8f2fb;
