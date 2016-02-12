@@ -32,4 +32,11 @@ $(document).ready(function () {
     $('.btn-mobile-menu__icon').toggleClass('icon-list icon-x-circle animated fadeIn')
   })
 
+  $(window).on('resize', function(){
+    var win = $(this);
+    if (win.width() < 960) {
+      $('.panel-cover').addClass('panel-cover--collapsed');
+      $('.panel-cover').removeAttr('style');
+    }
+  });
 })
