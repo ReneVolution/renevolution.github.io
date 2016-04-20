@@ -15,7 +15,7 @@ tags:
 - release
 ---
 
-[[![FFmpeg-Logo.svg](http://www.renevolution.com/wp-content/uploads/2013/03/FFmpeg-Logo.svg_.png)](http://www.renevolution.com/wp-content/uploads/2013/03/FFmpeg-Logo.svg_.png)](http://www.ffmpeg.org)
+[![FFmpeg Logo](/images/FFmpeg-Logo.svg_.png)]({% post_url 2013-03-21-new-major-release-ffmpeg-1-2-0 %})
 
 [FFmpeg.org](http://www.ffmpeg.org) has published new major release of my favorite video encoding software. The new release has a bunch of new great features. See below a summary of the new features:
 

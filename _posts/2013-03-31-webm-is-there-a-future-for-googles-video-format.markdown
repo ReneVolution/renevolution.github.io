@@ -17,7 +17,7 @@ tags:
 - webm
 ---
 
-[![Webm logo](http://www.renevolution.com/wp-content/uploads/2013/03/WebM_logo_mids.png)](http://www.renevolution.com/wp-content/uploads/2013/03/WebM_logo_mids.png)
+[![Webm logo](/images/WebM_logo_mids.png)]({% post_url 2013-03-31-webm-is-there-a-future-for-googles-video-format %})
 
 
 If you are working in the video business you would of course have heard about Webm and the VP8 codec as a competitor to H.264. In fact there was no chance to beat H.264. Not yet. In todays article i'll share my thoughts about Webm and the VP8 and VP9 codecs

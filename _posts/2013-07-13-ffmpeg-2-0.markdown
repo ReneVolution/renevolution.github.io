@@ -16,6 +16,6 @@ tags:
 - video
 ---
 
-[![FFmpeg-Logo.svg](http://www.renevolution.com/wp-content/uploads/2013/03/FFmpeg-Logo.svg_.png)](http://www.renevolution.com/wp-content/uploads/2013/03/FFmpeg-Logo.svg_.png)
+[![FFmpeg Logo](/images/FFmpeg-Logo.svg_.png)]({% post_url 2013-07-13-ffmpeg-2-0 %})
 
 Wow, what a big jump from FFmpeg 1.2 => 2.0. But there is a whole bunch of new impressive features e.g FTP Protocol support or filter graph description readable from file just to name two. You can find all updates at [http://www.ffmpeg.org](http://www.ffmpeg.org). I'm really looking forward to test the new features and share my observations here.

@@ -21,11 +21,15 @@ paginate_path: "/blog/page/:num"
 markdown: kramdown
 highlighter: rouge
 
+sass:
+  sass_dir: _sass
+  style: compressed
+
 kramdown:
   # use Github Flavored Markdown
   input: GFM
   # do not replace newlines by <br>s
   hard_wrap: false
 
-gems: ['jekyll-paginate']
+gems: ['jekyll-paginate', 'jekyll_inline_highlight']
 exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']

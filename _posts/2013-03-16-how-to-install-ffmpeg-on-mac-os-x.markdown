@@ -16,7 +16,7 @@ tags:
 - XCode
 ---
 
-[![FFmpeg-Logo.svg](http://www.renevolution.com/wp-content/uploads/2013/03/FFmpeg-Logo.svg_.png)](http://www.renevolution.com/wp-content/uploads/2013/03/FFmpeg-Logo.svg_.png)
+[![Install FFmpeg on OS X](/images/brew_install_ffmpeg.png)]({% post_url 2013-03-16-how-to-install-ffmpeg-on-mac-os-x %})
 
 This post is going to be to show you how to install [FFmpeg](http://www.ffmpeg.org) on Mac OS X as easy as possible. For that, i will use a software called ["Homebrew"](http://mxcl.github.com/homebrew/). It is a linux like package manager with a lot of useful tools easy to install from it. It is quite similar to MacPorts, but in this special case you will get a more recent [FFmpeg](http://www.ffmpeg.org) using [Homebrew](http://mxcl.github.com/homebrew/) than [MacPorts](http://www.macports.org/). Once you are familiar with [Homebrew](http://mxcl.github.com/homebrew/), i am sure you will use it a lot more afterwards if you are not using already.
 
@@ -53,7 +53,7 @@ This checks if your [Homebrew](http://mxcl.github.com/homebrew/) installation wa
 
 **Install FFmpeg**
 
-Now we are nearly done as all prerequisites are now installed and we can start installing FFmpeg. As there are many options when installing FFmpeg, a command you should know about is brew options <Formula> . This will show you all available options for the fromula you are going to install which will be in this case "ffmpeg". So in our case, brew options ffmpeg will print the following information to your screen:
+Now we are nearly done as all prerequisites are now installed and we can start installing FFmpeg. As there are many options when installing FFmpeg, a command you should know about is brew options <Formula> . This will show you all available options for the formula you are going to install which will be in this case "ffmpeg". So in our case, brew options ffmpeg will print the following information to your screen:
 
     
     reneVolution$ brew options ffmpeg
