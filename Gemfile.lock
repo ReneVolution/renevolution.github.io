@@ -85,8 +85,6 @@ GEM
       RedCloth (~> 4.0)
     jekyll-watch (1.3.1)
       listen (~> 3.0)
-    jekyll_inline_highlight (3.0)
-      jekyll (~> 3.0)
     jemoji (0.6.2)
       gemoji (~> 2.0)
       html-pipeline (~> 2.2)
@@ -131,7 +129,6 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-paginate
-  jekyll_inline_highlight
 
 BUNDLED WITH
    1.11.2
