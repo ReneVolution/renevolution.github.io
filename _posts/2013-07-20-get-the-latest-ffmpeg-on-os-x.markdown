@@ -56,7 +56,7 @@ These are our configuration flags we will use later.
 ## Prepare your environment
 
 
-Next we need to create a folder where our "special"-version of FFmpeg will live in. Later we will be able to have multiple versions of FFmpeg, isn't that great? So, i decided to create a folder called **ffmpeg-latest** in **/usr/local/** with {% ihighlight text %}$ mkdir /usr/local/ffmpeg-latest{% endihighlight %}.
+Next we need to create a folder where our "special"-version of FFmpeg will live in. Later we will be able to have multiple versions of FFmpeg, isn't that great? So, i decided to create a folder called **ffmpeg-latest** in **/usr/local/** with {% highlight text %}$ mkdir /usr/local/ffmpeg-latest{% endhighlight %}.
 
 
 ## Get FFmpeg
@@ -64,7 +64,7 @@ Next we need to create a folder where our "special"-version of FFmpeg will live 
 
 Now we will go and get the latest FFmpeg from Git and download it to the **/tmp** folder as we will not not need it anymore after compiling.
 
-So, first change the directory to /tmp with $ cd /tmp  and get FFmpeg using {% ihighlight text %}$ git clone git://source.ffmpeg.org/ffmpeg.git ffmpeg{% endihighlight %}. If you have no git installed, you can install it using Homebrew with {% ihighlight text %}$ brew install git{% endihighlight %} and try it again. The complete source code should now be available in **/tmp/ffmpeg**.
+So, first change the directory to /tmp with $ cd /tmp  and get FFmpeg using {% highlight text %}$ git clone git://source.ffmpeg.org/ffmpeg.git ffmpeg{% endhighlight %}. If you have no git installed, you can install it using Homebrew with {% highlight text %}$ brew install git{% endhighlight %} and try it again. The complete source code should now be available in **/tmp/ffmpeg**.
 
 
 ## Build your configure command
@@ -82,17 +82,17 @@ Putting it together:
 
 ## Compile it
 
-Now we can compile it. First change the directory to **/tmp/ffmpeg** with <br/>{% ihighlight text %}$ cd /tmp/ffmpeg{% endihighlight %}. After that you're ready to fire the configure command like this:
+Now we can compile it. First change the directory to **/tmp/ffmpeg** with <br/>{% highlight text %}$ cd /tmp/ffmpeg{% endhighlight %}. After that you're ready to fire the configure command like this:
 
 {% highlight bash %}
 $ ./configure --prefix=/usr/local/ffmpeg-latest --extra-cflags='-I/usr/local/Cellar/include' --extra-ldflags='-L/usr/local/Cellar/lib' --enable-shared --enable-pthreads --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-avresample --enable-vda --cc=cc --host-cflags= --host-ldflags= --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libxvid --enable-libfreetype --enable-libtheora --enable-libvorbis --enable-libvpx --enable-librtmp --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libvo-aacenc --enable-libass --enable-ffplay --enable-libspeex --enable-libschroedinger --enable-libfdk-aac --enable-libopus --enable-libopenjpeg --extra-cflags='-I/usr/local/Cellar/openjpeg/1.5.1/include/openjpeg-1.5'
 {% endhighlight %}
 
-I assume this will work without any issues and you can go further to build your new ffmpeg version using {% ihighlight bash %}$ make{% endihighlight %}. This will take a few minutes so take a break and get a coffee ;).
+I assume this will work without any issues and you can go further to build your new ffmpeg version using {% highlight bash %}$ make{% endhighlight %}. This will take a few minutes so take a break and get a coffee ;).
 
-If this has also finished without any errors ( warnings are quite normal here ) you can install it using {% ihighlight bash %}$ sudo make install{% endihighlight %}. After completition of this command your finally done.
+If this has also finished without any errors ( warnings are quite normal here ) you can install it using {% highlight bash %}$ sudo make install{% endhighlight %}. After completition of this command your finally done.
 
-You can now execute your new FFmpeg version using <br/>{% ihighlight bash %}$ /usr/local/ffmpeg-latest/bin/ffmpeg{% endihighlight %}.
+You can now execute your new FFmpeg version using <br/>{% highlight bash %}$ /usr/local/ffmpeg-latest/bin/ffmpeg{% endhighlight %}.
 
 ## Extra: Create a symlink
 
@@ -103,4 +103,4 @@ Anyway, i prefer to create a symlink in **/usr/local** and here's how it's been 
 $ ln -s /usr/local/ffmpeg-latest/bin/ffmpeg /usr/local/bin/ffmpeg-latest
 {% endhighlight %}
 
-From this time you can simply execute {% ihighlight bash %}$ ffmpeg-latest{% endihighlight %}  to use the latest version.
+From this time you can simply execute {% highlight bash %}$ ffmpeg-latest{% endhighlight %}  to use the latest version.

@@ -27,7 +27,7 @@ To keep the following scaling examples comparable i decided to use the image of 
 
 ## The Scaling filter
 
-To use the scaling filter you need to make use of the {% ihighlight text %}-vf [videofilter]{% endihighlight %} option in your command line. This signals [FFmpeg](http://www.ffmpeg.org) to prepare the video frames being filtered. Filters in FFmpeg are chainable, but this is a topic we'll dive deeper into in an upcoming article.
+To use the scaling filter you need to make use of the {% highlight text %}-vf [videofilter]{% endhighlight %} option in your command line. This signals [FFmpeg](http://www.ffmpeg.org) to prepare the video frames being filtered. Filters in FFmpeg are chainable, but this is a topic we'll dive deeper into in an upcoming article.
 
 The general usage for the scaling filter is:
 
