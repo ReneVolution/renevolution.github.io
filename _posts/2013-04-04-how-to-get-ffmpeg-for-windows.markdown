@@ -16,7 +16,7 @@ tags:
 - x264
 ---
 
-[![FFmpeg-Logo.svg](http://www.renevolution.com/wp-content/uploads/2013/03/FFmpeg-Logo.svg_.png)](http://www.renevolution.com/wp-content/uploads/2013/03/FFmpeg-Logo.svg_.png)
+[![FFmpeg Logo](/images/FFmpeg-Logo.svg_.png)]({% post_url 2013-07-13-ffmpeg-2-0 %})
 
 
 Last time i guided you on [how to install FFmpeg on Mac OS X](http://www.renevolution.com/how-to-install-ffmpeg-on-mac-os-x/). In today's article i will show you a way to get the latest [FFmpeg](http://www.ffmpeg.org) binaries for your Microsoft Windows operating system. Intentionally, when i started this blog i wanted to provide you with FFmpeg builds myself but after a while of thinking about it i decided to not reinvent the wheel on this topic and focus on guiding you how to use it. Anyway, for hands on my tutorials you will need to have a working version of FFmpeg. Badly, compiling FFmpeg for Windows is far from easy and i'm really happy there are already people who took the challenge and share their work with us.
