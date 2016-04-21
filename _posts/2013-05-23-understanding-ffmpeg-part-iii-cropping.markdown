@@ -36,7 +36,7 @@ Ok, before you leave the keyboard and stop reading .. you will not need a ruler 
 
 Get the cropping values
 
-At first we need to find out the necessary values for the cropping filter. This can be done by FFplay using the cropdetect filter. This can be done using the command line {% ihighlight text %}ffplay -i YourMovie.mp4 -vf "cropdetect=24:16:0"{% endihighlight %} or using FFmpeg with a command line like {% ihighlight text %}ffmpeg -i YourMovie.mp4 -vf "cropdetect=24:16:0" dummy.avi{% endihighlight %}.
+At first we need to find out the necessary values for the cropping filter. This can be done by FFplay using the cropdetect filter. This can be done using the command line {% highlight text %}ffplay -i YourMovie.mp4 -vf "cropdetect=24:16:0"{% endhighlight %} or using FFmpeg with a command line like {% highlight text %}ffmpeg -i YourMovie.mp4 -vf "cropdetect=24:16:0" dummy.avi{% endhighlight %}.
 
 The cropdetect filter is configured with the arguments **cropdetect=limit:round:reset** with the following meaning:
 
