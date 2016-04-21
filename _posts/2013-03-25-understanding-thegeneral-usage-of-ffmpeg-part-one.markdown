@@ -29,7 +29,7 @@ ffmpeg -i [INPUTFILE] [OUTPUTFILE]
 {% endhighlight %}
 
 
-e.g. {% ihighlight text %}ffmpeg -i MyMovie.mp4 MyMovie.avi{% endihighlight %} will convert your MP4 video to AVI. Of course this is not very useful as you haven't specified anything for your output like resolution, codec, bitrate etc., but i will use this command as a starting point for further explanations.
+e.g. {% highlight text %}ffmpeg -i MyMovie.mp4 MyMovie.avi{% endhighlight %} will convert your MP4 video to AVI. Of course this is not very useful as you haven't specified anything for your output like resolution, codec, bitrate etc., but i will use this command as a starting point for further explanations.
 
 
 ## Specifiying the Codecs
