@@ -1,6 +1,6 @@
 ---
 author: reneVolution
-comments: true
+comments: false
 date: 2013-03-31 09:57:17+00:00
 layout: post
 slug: introducing-tears-of-steel

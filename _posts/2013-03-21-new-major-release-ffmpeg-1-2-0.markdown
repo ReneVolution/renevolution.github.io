@@ -1,6 +1,6 @@
 ---
 author: reneVolution
-comments: true
+comments: false
 date: 2013-03-21 05:37:17+00:00
 layout: post
 slug: new-major-release-ffmpeg-1-2-0

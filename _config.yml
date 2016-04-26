@@ -4,6 +4,7 @@ description: 'Developer, Media Enthusiast and Fisherman'
 url: 'http://renevolution.com' 
 baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
+disqus_shortname: 'renevolutioncom'
 
 author:
   name: 'René Calles'

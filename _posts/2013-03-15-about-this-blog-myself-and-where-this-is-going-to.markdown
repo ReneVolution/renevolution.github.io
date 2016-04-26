@@ -1,6 +1,6 @@
 ---
 author: reneVolution
-comments: true
+comments: false
 date: 2013-03-15 20:25:32+00:00
 layout: post
 slug: about-this-blog-myself-and-where-this-is-going-to
