@@ -43,7 +43,7 @@ The time i am writing this Tutorial i have already installed the Xcode Command L
 
 Installing [Homebrew](http://mxcl.github.com/homebrew/) is quite simple. Everything you need to do is to open up a Terminal window, paste and execute the following command and follow the instructions during the installation process.
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
 After successful installation you should execute:
 
@@ -55,9 +55,9 @@ This checks if your [Homebrew](http://mxcl.github.com/homebrew/) installation wa
 
 Now we are nearly done as all prerequisites are now installed and we can start installing FFmpeg. As there are many options when installing FFmpeg, a command you should know about is brew options <Formula> . This will show you all available options for the formula you are going to install which will be in this case "ffmpeg". So in our case, brew options ffmpeg will print the following information to your screen:
 
-    
+
     reneVolution$ brew options ffmpeg
-    
+
     --with-fdk-aac
     	Enable the Fraunhofer FDK AAC library
     --with-ffplay
@@ -112,7 +112,7 @@ Example:
 
 To install FFmpeg with all available options without disabling anything execute:
 
-    
+
     brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r --with-libass --with-libvo-aacenc --with-libvorbis --with-libvpx --with-opencore-amr --with-openjpeg --with-opus --with-rtmpdump --with-schroedinger --with-speex --with-theora --with-tools
 
 
