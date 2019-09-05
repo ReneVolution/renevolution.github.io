@@ -1,14 +1,14 @@
 # Site settings
 title: René Calles
 description: 'Developer, Media Enthusiast and Fisherman'
-url: 'http://renevolution.com' 
+url: 'http://renecalles.de' 
 baseurl: '/'
 # google_analytics: 'UA-XXXXXX-X'
 disqus_shortname: 'renevolutioncom'
 
 author:
   name: 'René Calles'
-  email: info@renevolution.com
+  email: website@renecalles.de
   twitter_username: renecalles
   #facebook_username: joshgerdes
   github_username: ReneVolution
